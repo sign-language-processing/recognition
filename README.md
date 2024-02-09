@@ -20,3 +20,8 @@ class_probabilities = predict(pose)
 gloss = predict(pose, label=True)
 ```
 
+Or in CLI, given a `.pose` file, and an ELAN file with a `SIGN` tier:
+
+```bash
+sign_language_recognition --model="kaggle_asl_signs" --pose="sign.pose" --elan="sign.eaf"
+```

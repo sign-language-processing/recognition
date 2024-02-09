@@ -10,8 +10,8 @@ dependencies = [
     "pose-format>=0.3.2",
     "numpy",
     "tflite-runtime",
-    # for inference using a huggingface hosted model
-    "huggingface-hub",
+    "pympi-ling", # Working with ELAN files in CLI
+    "huggingface-hub", # for inference using a huggingface hosted model
 ]
 
 [project.optional-dependencies]
@@ -49,3 +49,6 @@ sign_language_recognition = ["**/*.json"]
 [tool.pytest.ini_options]
 addopts = "-v"
 testpaths = ["sign_language_recognition"]
+
+[project.scripts]
+sign_language_recognition = "sign_language_recognition.bin:main"
