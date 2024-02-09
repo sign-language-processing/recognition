@@ -12,7 +12,7 @@ pip install git+https://github.com/sign-language-processing/recognition
 
 The winning entry for the ASL Signs Kaggle competition.
 
-```bash
+```py
 from sign_language_recognition.kaggle_asl_signs import predict
 
 pose = ... # Load pose from a file
