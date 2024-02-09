@@ -1,8 +1,7 @@
 from functools import lru_cache
 
-import numpy as np
 import json
-
+import numpy as np
 from pose_format import Pose
 from huggingface_hub import hf_hub_download
 
