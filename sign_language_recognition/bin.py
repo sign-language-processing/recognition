@@ -42,9 +42,9 @@ def main():
             header=pose.header,
             body=pose.body[start_frame:end_frame]
         )
-        segment[2] = module.predict(cropped_pose, label=True)
+        gloss = module.predict(cropped_pose, label=True)
         eaf.remove_annotation('SIGN', segment[0])
-        eaf.add_annotation('SIGN', segment[0], segment[1], segment[2])
+        eaf.add_annotation('SIGN', segment[0], segment[1], gloss)
 
     print('Saving ELAN file...')
     eaf.to_file(args.elan)
