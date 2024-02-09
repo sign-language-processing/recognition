@@ -1,0 +1,51 @@
+[project]
+name = "sign-language-recognition"
+description = "Sign Language Recognition Models For General Use"
+version = "0.0.1"
+authors = [
+    { name = "Amit Moryossef", email = "amitmoryossef@gmail.com" }
+]
+readme = "README.md"
+dependencies = [
+    "pose-format>=0.3.2",
+    "numpy",
+    "tflite-runtime",
+    # for inference using a huggingface hosted model
+    "huggingface-hub",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pylint",
+]
+
+[tool.yapf]
+based_on_style = "google"
+column_limit = 120
+
+[tool.pylint]
+max-line-length = 120
+disable = [
+    "C0114", # Missing module docstring
+    "C0115", # Missing class docstring
+    "C0116", # Missing function or method docstring
+    "C0415", # Import outside toplevel
+]
+good-names = ["i", "f", "x", "y"]
+
+[tool.pylint.typecheck]
+generated-members = ["torch.*", "numpy.*", "cv2.*"]
+
+[tool.setuptools]
+packages = [
+    "sign_language_recognition",
+    "sign_language_recognition.kaggle_asl_signs"
+]
+
+[tool.setuptools.package-data]
+sign_language_recognition = ["**/*.json"]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["sign_language_recognition"]
